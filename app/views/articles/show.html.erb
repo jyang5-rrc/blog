@@ -1,0 +1,19 @@
+<h1><%= @article.title %></h1>
+
+<p><%= @article.body %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <li><%= link_to "Destroy", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+
+<%# edit_article_path is the link of edit.html.erb %>
+<%# data is using turbo to delete the article, and it will ask for confirmation before deleting the article.
+turbo is a hook includes the turbo frame, turbo stream, turbo stream from, turbo stream.
+delete is a method from turbo, and it will delete the article.
+
+data-turbo-confirm="Are you sure?" will cause a confirmation dialog to appear when the link is clicked. If the user cancels the dialog, the request will be aborted. %>
