@@ -1,0 +1,31 @@
+<%= form_with model: article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+<%# The full_messages_for method returns an array of user-friendly error messages for a specified attribute. If there are no errors for that attribute, the array will be empty. %>
+
+<%# In new.html.erb file, we use the @article instance variable to create a form for a new article.
+In the _form.html.erb file, we use the article local variable to create a form for a new article.
+This is because the _form.html.erb file is a partial, and partials don't have access to instance variables.
+Instead, they use local variables, which are passed to them from the view that renders them.
+In this case, the new.html.erb file is rendering the _form.html.erb file, and it's passing the article local variable to it.
+ This is why we use the article local variable in the _form.html.erb file. %>
+
+<%# A partial's filename must be prefixed with an underscore, e.g. _form.html.erb. But when rendering, it is referenced without the underscore, e.g. render "form". %>
