@@ -1,0 +1,8 @@
+<h1>New Article</h1>
+
+<%= render "form", article: @article %>
+<%# form is a partial, and partials don't have access to instance variables.
+Instead, they use local variables, which are passed to them from the view that renders them.
+In this case, the new.html.erb file is rendering the _form.html.erb file,
+and it's passing the article local variable to it.
+This is why we use the article local variable in the _form.html.erb file. %>
